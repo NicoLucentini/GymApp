@@ -1,0 +1,89 @@
+<p>inicio works!</p>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div style="text-align: center">
+    <h1>{{message}}</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form>
+                <fieldset>
+                    <legend class="text-left">Registrar</legend>
+
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span> Nombre:  </label>
+                        <input required type="text" [(ngModel)]="usuario.nombre" name="name" id="name"
+                            class="form-control phone" maxlength="28" placeholder="Ingresa el nombre..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="Apellido"><span class="req">* </span> Apellido:  </label>
+                        <input required type="text" [(ngModel)]="usuario.apellido" name="apellido" id="apellido"
+                            class="form-control phone" maxlength="28" placeholder="Ingresa el apellido..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="Email"><span class="req">* </span> Email: </label>
+                        <input required type="text" [(ngModel)]="usuario.email" name="email" id="email"
+                            class="form-control phone" maxlength="28" placeholder="Ingresa el email ejemplo@test.com..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="Contraseña"><span class="req">* </span> Contraseña:  </label>
+                        <input required type="password" [(ngModel)]="usuario.password" name="contraseña" id="contraseña"
+                            class="form-control phone" maxlength="28" placeholder="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Tipo"><span class="req">* </span> Tipo Usuario:  </label>
+                        <select id="nivel" name = "nivel" [(ngModel)]="usuario.nivel" class="form-control">
+                        <option value="2"> Alumno </option>>
+                        <option value="1"> Profesor </option>>
+                        <option value="0"> Administrador </option>>
+                        </select>
+                    </div>
+                    <div class="form-group"> 
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Registrar" (click)="registrarUsuario()">
+                        <div style="text-align: left">
+                            <h4>{{messageRegistro}}</h4>
+                        </div>
+                    </div>
+                    
+                </fieldset>
+            </form><!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form>
+                <fieldset>
+                    <legend class="text-left">Login</legend>
+
+                    <div class="form-group">
+                        <label for="loginEmail"><span class="req">* </span> Email: </label>
+                        <input required type="text" [(ngModel)]="usuarioLogin.email" name="loginEmail" id="loginEmail"
+                            class="form-control phone" maxlength="28" placeholder="Ingresa el email ejemplo@test.com..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="loginContraseña"><span class="req">* </span> Contraseña:  </label>
+                        <input required type="password" [(ngModel)]="usuarioLogin.password" name="loginContraseña" id="loginContraseña"
+                            class="form-control phone" maxlength="28" placeholder="" />
+                    </div>
+                    <div class="form-group"> 
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Ingresar" (click)="login()">
+                        <div style="text-align: left">
+                            <h4>{{messageLogin}}</h4>
+                        </div>
+                    </div>
+                </fieldset>
+            </form><!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>

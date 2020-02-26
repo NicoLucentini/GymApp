@@ -1,0 +1,80 @@
+<p>usuarios works!</p>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div style="text-align: center">
+    <h1>{{message}}</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form>
+                <fieldset>
+                    <legend class="text-left">Agregar Usuario</legend>
+
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span> Nombre:  </label>
+                        <input required type="text" [(ngModel)]="usuario.nombre" name="name" id="name"
+                            class="form-control phone" maxlength="28" placeholder="Ingresa el nombre..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="Apellido"><span class="req">* </span> Apellido:  </label>
+                        <input required type="text" [(ngModel)]="usuario.apellido" name="apellido" id="apellido"
+                            class="form-control phone" maxlength="28" placeholder="Ingresa el apellido..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="Email"><span class="req">* </span> Email: </label>
+                        <input required type="text" [(ngModel)]="usuario.email" name="email" id="email"
+                            class="form-control phone" maxlength="28" placeholder="Ingresa el email ejemplo@test.com..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="Contraseña"><span class="req">* </span> Contraseña:  </label>
+                        <input required type="password" [(ngModel)]="usuario.password" name="contraseña" id="contraseña"
+                            class="form-control phone" maxlength="28" placeholder="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Tipo"><span class="req">* </span> Tipo Usuario:  </label>
+                        <select id="nivel" name = "nivel" [(ngModel)]="usuario.nivel" class="form-control">
+                        <option value=2> Alumno </option>>
+                        <option value=1> Profesor </option>>
+                        <option value=0> Administrador </option>>
+                        </select>
+                    </div>
+                    <div class="form-group"> 
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Agregar" (click)="registrarUsuario()">
+                    </div>
+                </fieldset>
+            </form><!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
+
+<div class="container">
+    <br>
+    <div class="row col-md-8 custyle">
+        <legend class="text-left">Usuarios</legend>   
+        <div class="row col-md-8 custyle">
+            <input class="btn btn-success" style="margin-right: 20px" type="submit" name="submit_reg" value="Ver Todos" (click)="getAll()" >
+            <input class="btn btn-success" style="margin-right: 20px"  type="submit" name="submit_reg" value="Ver Alumnos" (click)="getAlumnos()">
+            <input class="btn btn-success" style="margin-right: 20px" type="submit" name="submit_reg" value="Ver Profesores" (click)="getProfesores()">
+        </div>
+
+    <table class="table table-striped custab">      
+    <thead>       
+        <tr>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of usuarios">
+            <td>{{usuario.nombre}} {{usuario.apellido}} </td>
+            <td class="text-center"><button class="btn btn-danger btn-xs" (click)="remove(usuario.id)"><span class="glyphicon glyphicon-remove"></span>Eliminar</button></td>
+            <td class="text-center"><button class="btn btn-success btn-xs" (click)="remove(usuario.id)"> Ver Perfil</button></td>
+          </tr>
+    </tbody>
+    </table>
+</div>
